@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use App\Support\Tenancy\BelongsToTenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class LedgerEntry extends Model
 {
-    use HasFactory;
+    use BelongsToTenant, HasFactory;
 
     protected $fillable = [
-        'tenant_id',
         'payment_id',
         'withdrawal_id',
         'idempotency_key',

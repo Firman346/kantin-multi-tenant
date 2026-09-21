@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Support\Tenancy\BelongsToTenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class MenuModifierGroup extends Model
 {
-    use HasFactory;
+    use BelongsToTenant, HasFactory;
 
     public $incrementing = false;
 
@@ -18,7 +19,6 @@ class MenuModifierGroup extends Model
     protected $fillable = [
         'menu_id',
         'modifier_group_id',
-        'tenant_id',
     ];
 
     public function menu()

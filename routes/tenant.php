@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'verified', 'role:tenant'])
+Route::middleware([
+    'auth',
+    'verified',
+    'role:tenant',
+    'tenant.context',
+])
     ->prefix('{tenant:slug}')
     ->scopeBindings()
     ->name('tenant.')

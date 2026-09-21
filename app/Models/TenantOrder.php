@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
+use App\Support\Tenancy\BelongsToTenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TenantOrder extends Model
 {
-    use HasFactory;
+    use BelongsToTenant, HasFactory;
 
     protected $fillable = [
         'order_id',
-        'tenant_id',
         'commission_id',
         'status',
         'scheduled_at',
